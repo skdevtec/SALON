@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Marcel App",
+  "short_name": "Marcel App",
+  "version": "com.skdevtech.membership",
+  "description": "Aplikasi Member Salon Marcel",
+  "author": "SK DEV TECHNOLOGY",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#2196f3"
+}

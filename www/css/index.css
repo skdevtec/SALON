@@ -1,0 +1,65 @@
+.tombol-menu {
+    width: 80%; 
+    height: 20%; 
+    font-size: 350%; 
+    padding: 10%;
+}
+.tombol-menu-backup {
+  width: 80%; 
+}
+.tombol-menu-salon {
+    width: 80%; 
+    height: 30%; 
+    font-size: 350%; 
+    padding: 10%;
+}
+.tombol-submit {
+  width: 80%; 
+}
+.page {
+  background-color: white;
+}
+.bckgrnd-navbar {
+  background-color:#007aff;
+  color:white;
+}
+.bckgrnd-riwayat {
+  background-color:#007aff;
+  color:white;
+}
+.label-show-profil{
+  font-size: 20px;;
+}
+.mg-t-0 {
+  margin-top: 0;
+}
+.mg-t-5 {
+  margin-top: 5%;
+}
+.mg-t-10 {
+  margin-top: 10%;
+}
+.mg-t-15 {
+  margin-top: 15%;
+}
+.mg-t-20 {
+  margin-top: 20%;
+}
+.mg-t-25 {
+  margin-top: 25%;
+}
+.mg-t-30 {
+  margin-top: 30%;
+}
+.mg-t-35 {
+  margin-top: 35%;
+}
+.mg-t-40 {
+  margin-top: 40%;
+}
+.mg-t-45 {
+  margin-top: 45%;
+}
+.mg-t-50 {
+  margin-top: 50%;
+}
