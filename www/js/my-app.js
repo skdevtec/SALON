@@ -25,7 +25,7 @@ routes: [
 		{
 			pageInit: function (e, page) 
 			{
-
+				
 			},	
 		},
 	},
@@ -526,9 +526,11 @@ routes: [
 				});
 				$$('#succes_list_paket_salon').hide();
 				$$('#list_paket_salon').html('');
+				var cari = $$('#txtsearch_list_paket_salon').val();
 				app.request({
 					method:"POST",
 					url:conn_database+"salon/service/select_service.php",
+					data:{name_service:cari},
 					success:function(data){
 						var obj = JSON.parse(data);
 						if(obj['status'] == true) {
@@ -1566,9 +1568,11 @@ routes: [
 
 				$$('#succes_list_produk_sothys').hide();
 				$$('#list_produk_sothys').html('');
+				var cari = $$('#txtsearch_list_produk_sothys').val();
 				app.request({
 					method:"POST",
 					url:conn_database+"sothys/product/select_product.php",
+					data:{name_product:cari},
 					success:function(data){
 						var obj = JSON.parse(data);
 						if(obj['status'] == true) {
@@ -1872,6 +1876,7 @@ routes: [
 				app.request({
 					method:"POST",
 					url:conn_database+"sothys/product/select_product.php",
+					data:{name_product:''},
 					success:function(data){
 						var obj = JSON.parse(data);
 						if(obj['status'] == true) {
@@ -1978,6 +1983,8 @@ routes: [
 
 				$$('#btn-submit-transaksi-produk-member-sothys').on('click', function(e) {
 					var total = 0;
+					var diskon = $$('#diskon_produk_transaksi_produk_member_sothys').val();
+					var ongkir = $$('#ongkir_produk_transaksi_produk_member_sothys').val();
 					for(var i = 1;i<=tmpjmlh;i++)
 					{
 						var val_id=$$('#produk_transaksi_produk_member_sothys_detail'+i).val();
@@ -1991,7 +1998,7 @@ routes: [
 							total += parseInt($$('#count_produk_transaksi_produk_member_sothys_detail'+i).val()) * parseInt($$('#price_produk_transaksi_produk_member_sothys_detail'+i).val());
 						}
 					}
-					app.dialog.confirm("Total transaksi ini adalah "+formatRupiah(total.toString())+" ?",function(){
+					app.dialog.confirm("Total transaksi ini adalah "+formatRupiah(total.toString())+" dengan diskon "+diskon+" dan ongkir "+ongkir+" ?",function(){
 						loadingdata();
 						app.request({
 							method:"POST",
@@ -2001,13 +2008,15 @@ routes: [
 								idproduct:arrtmp,
 								count_log:arrtmpc,
 								price_log:arrtmpp,
+								diskon:diskon,
+								ongkir:ongkir,
 							},
 							success:function(data){
 								var obj = JSON.parse(data);
 								if(obj['status'] == true) {
 									var x = obj['data'];
 									app.dialog.alert(x,'Notifikasi',function(){
-										var url = 'https://salon.skdevtechnology.com/api/sothys/log_sothys/checkout_log_sothys.php'
+										var url = conn_database+'sothys/log_sothys/checkout_log_sothys.php'
 										cordova.InAppBrowser.open(url, '_system', 'location=no');
 										app.views.main.router.back({
 											url: /home/,
