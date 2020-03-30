@@ -1,24 +1,12 @@
 {
-  "name": "helloworld",
-  "short_name": "helloworld",
-  "description": "Description of your app from template",
-  "start_url": "index.html",
-  "scope": "index.html",
-  "icons": [
-    {
-      "src": "img/logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "img/splash.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "default_locale": "en",
-  "display": "standalone",
   "background_color": "#FFF",
-  "theme_color": "#000",
-  "orientation": "landscape"
+  "display": "standalone",
+  "name": "Marcel App",
+  "short_name": "Marcel App",
+  "version": "com.skdevtech.membership",
+  "description": "Aplikasi Member Salon Marcel",
+  "author": "SK DEV TECHNOLOGY",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#2196f3"
 }

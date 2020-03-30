@@ -1983,8 +1983,21 @@ routes: [
 
 				$$('#btn-submit-transaksi-produk-member-sothys').on('click', function(e) {
 					var total = 0;
+					var diskon_absolut = $$('#diskon_absolut_produk_transaksi_produk_member_sothys').val();
+					if(diskon_absolut == "") {
+						diskon_absolut = 0;
+						$$('#diskon_absolut_produk_transaksi_produk_member_sothys').val(0);
+					}
 					var diskon = $$('#diskon_produk_transaksi_produk_member_sothys').val();
+					if(diskon == "") {
+						diskon = 0;
+						$$('#diskon_produk_transaksi_produk_member_sothys').val(0);
+					}
 					var ongkir = $$('#ongkir_produk_transaksi_produk_member_sothys').val();
+					if(ongkir == "") {
+						ongkir = 0;
+						$$('#ongkir_produk_transaksi_produk_member_sothys').val(0);
+					}
 					for(var i = 1;i<=tmpjmlh;i++)
 					{
 						var val_id=$$('#produk_transaksi_produk_member_sothys_detail'+i).val();
@@ -1998,7 +2011,7 @@ routes: [
 							total += parseInt($$('#count_produk_transaksi_produk_member_sothys_detail'+i).val()) * parseInt($$('#price_produk_transaksi_produk_member_sothys_detail'+i).val());
 						}
 					}
-					app.dialog.confirm("Total transaksi ini adalah "+formatRupiah(total.toString())+" dengan diskon "+diskon+" dan ongkir "+ongkir+" ?",function(){
+					app.dialog.confirm("Total transaksi ini adalah "+formatRupiah(total.toString())+" dengan diskon "+diskon+"% + "+formatRupiah(diskon_absolut.toString())+" dan ongkir "+formatRupiah(ongkir.toString())+" ?",function(){
 						loadingdata();
 						app.request({
 							method:"POST",
@@ -2008,6 +2021,7 @@ routes: [
 								idproduct:arrtmp,
 								count_log:arrtmpc,
 								price_log:arrtmpp,
+								diskon_absolut:diskon_absolut,
 								diskon:diskon,
 								ongkir:ongkir,
 							},
